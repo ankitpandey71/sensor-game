@@ -1,0 +1,191 @@
+.game-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #1a1a2e;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.game-header {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #667eea;
+}
+
+.game-stats {
+  display: flex;
+  gap: 40px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat .label {
+  color: #aaa;
+  font-size: 0.9em;
+  margin-bottom: 5px;
+}
+
+.stat .value {
+  color: #00ff88;
+  font-size: 1.5em;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+}
+
+.quit-button {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.95em;
+  transition: background 0.2s;
+}
+
+.quit-button:hover {
+  background: #ff5252;
+}
+
+.game-canvas {
+  flex: 1;
+  background: linear-gradient(180deg, #0f3460 0%, #16213e 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05) 76%, transparent 77%, transparent),
+    linear-gradient(180deg, transparent 24%, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05) 76%, transparent 77%, transparent);
+  background-size: 50px 50px;
+  z-index: 0;
+}
+
+.game-over-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.game-over-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: popIn 0.4s ease-out;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.game-over-card h2 {
+  color: white;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.game-over-card p {
+  color: white;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+
+.game-over-card strong {
+  color: #00ff88;
+  font-size: 1.3em;
+}
+
+.restart-button {
+  background: white;
+  color: #667eea;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.1em;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+
+.restart-button:hover {
+  transform: translateY(-2px);
+}
+
+.sensor-info {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px 20px;
+  border-top: 1px solid #667eea;
+  text-align: center;
+}
+
+.tilt-indicator {
+  color: #00ff88;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+@media (max-width: 600px) {
+  .game-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .game-stats {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .game-over-card {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .game-over-card h2 {
+    font-size: 1.8em;
+  }
+
+  .game-over-card p {
+    font-size: 1em;
+  }
+}
