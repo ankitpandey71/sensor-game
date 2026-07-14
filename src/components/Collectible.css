@@ -1,0 +1,28 @@
+.collectible {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  z-index: 40;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: pulse 0.8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.6));
+  }
+  50% {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 1));
+  }
+}
+
+@media (max-width: 600px) {
+  .collectible {
+    font-size: 1em;
+  }
+}
